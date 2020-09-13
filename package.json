@@ -1,0 +1,19 @@
+{
+  "name": "finalprojectlabweb",
+  "version": "1.0.0",
+  "description": "Social Network for Artists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicoleBarra/FinalProjectLabWeb.git"
+  },
+  "author": "Anne Schreiber, Nicole Barra, Daniel Zubieta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicoleBarra/FinalProjectLabWeb/issues"
+  },
+  "homepage": "https://github.com/NicoleBarra/FinalProjectLabWeb#readme"
+}
