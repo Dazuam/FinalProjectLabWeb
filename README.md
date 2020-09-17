@@ -11,3 +11,6 @@ knex seed:run
 ```
 node server.js
 ```
+
+## Acerca del seed
+La contraseña de los tres usuarios en el seed se debe insertar como "poteto".
