@@ -1,4 +1,5 @@
 let router = require('express').Router();
+let PagesController = require('../controllers/PagesController');
 let authController = require('../controllers/AuthController');
 let authValidator = require('../validators/AuthValidators');
 let passport = require('passport');
@@ -16,8 +17,12 @@ router.get('/login-fail', (req, res) => {
   res.send('El usuario no tiene una sesión válida');
 });
 
+router.get('/', PagesController.homepage);
 
+router.get('/Register', PagesController.register);
 
+router.get('/MyGallery', PagesController.gallery);
 
+router.get('/MyTimeline', PagesController.timeline);
 
 module.exports = router;
