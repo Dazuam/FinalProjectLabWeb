@@ -1,7 +1,7 @@
 
 
 exports.homepage = (req, res) => {
-    res.render('pages/homepage' , { layout: 'style'});
+    res.render('pages/homepage');
 }
 
 exports.timeline = (req, res) => {
