@@ -19,7 +19,7 @@ router.get('/login-fail', (req, res) => {
 
 router.get('/', PagesController.homepage);
 
-router.get('/Register', PagesController.register);
+router.get('/Register', authController.register);
 
 router.get('/MyGallery', PagesController.gallery);
 

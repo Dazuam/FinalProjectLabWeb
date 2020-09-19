@@ -1,7 +1,7 @@
-let ProductModel = require('../models/Product');
+
 
 exports.homepage = (req, res) => {
-    res.render('pages/homepage');
+    res.render('pages/homepage' , { layout: 'style'});
 }
 
 exports.timeline = (req, res) => {
