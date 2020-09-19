@@ -5,9 +5,9 @@ exports.homepage = (req, res) => {
 }
 
 exports.timeline = (req, res) => {
-    res.render('pages/timeline');
+    res.render('pages/timeline', { layout: 'style'});
 }
 
 exports.gallery = (req, res) => {
-    res.render('pages/gallery');
+    res.render('pages/gallery', { layout: 'style'});
 }
