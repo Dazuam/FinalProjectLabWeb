@@ -1,4 +1,4 @@
-let ProductModel = require('../models/Product');
+
 
 exports.homepage = (req, res) => {
     res.render('pages/homepage');
