@@ -2,6 +2,8 @@ let router = require('express').Router();
 let PagesController = require('../controllers/PagesController');
 let authController = require('../controllers/AuthController');
 let authValidator = require('../validators/AuthValidators');
+const imagesController = require('../controllers/ImagesController');
+const upload = require('../middlewares/UploadMiddleware');
 let passport = require('passport');
 
 // Authentication routes
@@ -24,5 +26,9 @@ router.get('/Register', authController.register);
 router.get('/MyGallery', PagesController.gallery);
 
 router.get('/MyTimeline', PagesController.timeline);
+
+router.get('/Image', PagesController.image);
+
+router.post('/images', upload.single('theImage'), imagesController.create);
 
 module.exports = router;

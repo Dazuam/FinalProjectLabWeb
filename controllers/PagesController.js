@@ -11,3 +11,7 @@ exports.timeline = (req, res) => {
 exports.gallery = (req, res) => {
     res.render('pages/gallery', { layout: 'style'});
 }
+
+exports.image = (req, res) => {
+    res.render('pages/uploadImg', { layout: 'style'});
+}

@@ -46,6 +46,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /**
+ * Static Files
+ */
+app.use('/', express.static(__dirname + '/storage'));
+
+/**
  * Routes
  */
 app.use('/', webRoutes);
