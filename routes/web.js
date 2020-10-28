@@ -11,6 +11,12 @@ router.get('/login', authController.login);
 router.get('/register', authController.register);
 
 router.post('/register', authValidator.store, authController.store);
+
+/*router.get('/upload', authController.upload);
+router.post('/upload',authValidator.storeupload, authController.storeupload); */
+
+
+
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login-fail', successRedirect: '/protected' }));
 router.get('/protected', (req, res) => {
   res.send('Usuario logueado con éxito');
