@@ -35,6 +35,7 @@ router.get('/MyTimeline', PagesController.timeline);
 
 router.get('/Image', PagesController.image);
 
-router.post('/images', upload.single('theImage'), imagesController.create);
+router.post('/images',upload.single("theImage"),imagesController.store);
+
 
 module.exports = router;
