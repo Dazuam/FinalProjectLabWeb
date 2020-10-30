@@ -57,57 +57,22 @@
     <!-- Page Features -->
     <div class="row text-center">
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Artwork Title</h4>
-            <p class="card-text">Artwork Description</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Artist Username</a>
+      {{#each images}}
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="{{this.imgUrl}}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{this.title}}</h4>
+              <p class="card-text">{{this.description}}</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">{{this.user}}</a>
+            </div>
           </div>
         </div>
-      </div>
+      {{/each}}
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Artwork Title</h4>
-            <p class="card-text">Artwork Description</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Artist Username</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Artwork Title</h4>
-            <p class="card-text">Artwork Description</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Artist Username</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Artwork Title</h4>
-            <p class="card-text">Artwork Description</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Artist Username</a>
-          </div>
-        </div>
-      </div>
+      
 
     </div>
     <!-- /.row -->
@@ -115,7 +80,7 @@
   </div>
   <!-- /.container -->
 
-    <!-- /.container -->
+   
   </footer>
 
   <!-- Bootstrap core JavaScript -->

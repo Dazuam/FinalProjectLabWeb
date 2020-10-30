@@ -22,8 +22,10 @@ exports.store = (req, res) => {
     req.flash('errors', errors.array());
     return res.redirect('back');
   }
-
-  UploadModel.create(req.body, req.file)
+  console.log("Request")
+  console.log(req)
+  UploadModel.create(req.body, req.file, req.user)
+    
     .then((data) => {
       return res.send('Image created');
     })

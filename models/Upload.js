@@ -11,14 +11,24 @@ exports.findById = (id) => {
 }
 
 exports.all = () => {
+  // Realiza la consulta dentro de knex
   return knex
-    .from('uploads')
-    .select('*');
+    .select('*')
+    .from('uploads');
 }
 
-exports.create = (upload, image) => {
+exports.findByUser = (user)=>{
+  return knex
+    .select('*')
+    .from('uploads')
+    .where('user', user.name)
+    
+}
+
+
+exports.create = (upload, image, user) => {
 
   let url = 'http://localhost:3000/images/' + image.filename;
   return knex('uploads')
-    .insert({ title: upload.title, description: upload.desciption, imgUrl: url })
+    .insert({ title: upload.title, description: upload.desciption, imgUrl: url, user: user.name })
 }
