@@ -9,13 +9,14 @@ exports.homepageunlogged = (req, res) => {
 }
 
 exports.timeline = (req, res) => {
-    res.render('pages/timeline', { layout: 'style'});
+    res.render('pages/timeline', { layout: 'style', user:req.user.email});
 }
 
 exports.gallery = (req, res) => {
-    res.render('pages/gallery', { layout: 'style'});
+    console.log(req.user);
+    res.render('pages/gallery', { layout: 'style', user:req.user.email, username:req.user.name});
 }
 
 exports.image = (req, res) => {
-    res.render('pages/uploadImg', { layout: 'style'});
+    res.render('pages/uploadImg', { layout: 'style', user:req.user.email});
 }
