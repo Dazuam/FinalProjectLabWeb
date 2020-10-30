@@ -1,7 +1,11 @@
 
 
-exports.homepage = (req, res) => {
-    res.render('pages/homepage' , { layout: 'style'});
+exports.homepagelogged = (req, res) => {
+    res.render('pages/homepage' , { layout: 'style', user:req.user.email});
+}
+
+exports.homepageunlogged = (req, res) => {
+    res.render('pages/homepageunlogged' , { layout: 'style'});
 }
 
 exports.timeline = (req, res) => {
