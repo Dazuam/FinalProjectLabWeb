@@ -42,6 +42,11 @@ router.get('/MyTimeline', PagesController.timeline);
 
 router.get('/Image', PagesController.image);
 
+router.get('/Logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 router.post('/images',upload.single("theImage"),imagesController.store);
 
 
