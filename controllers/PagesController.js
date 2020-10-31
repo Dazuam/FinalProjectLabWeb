@@ -43,7 +43,7 @@ exports.gallery = (req, res) => {
       let images = data;
        console.log(images)
       // Enviamos los datos a la vista
-      res.render('pages/gallery', { layout: 'style', images: images });
+      res.render('pages/gallery', { layout: 'style', username:req.user.name, images: images });
     });
 }
 
