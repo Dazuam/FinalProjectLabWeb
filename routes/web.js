@@ -5,6 +5,8 @@ let authValidator = require('../validators/AuthValidators');
 const imagesController = require('../controllers/ImagesController');
 const upload = require('../middlewares/UploadMiddleware');
 let passport = require('passport');
+const db = require('../database/connection');
+
 
 // Authentication routes
 router.get('/login', authController.login);
@@ -28,10 +30,12 @@ router.get('/login-fail', (req, res) => {
 router.get('/', (req, res, next) => {
   if(req.isAuthenticated()) return next();
   
-  res.render('pages/homepageunlogged' , { layout: 'style'});
+  res.redirect('/homepageunlogged');
   
 
 }, PagesController.homepagelogged);
+
+router.get('/homepageunlogged', PagesController.homepageunlogged);
 
 
 router.get('/Register', authController.register);
