@@ -19,13 +19,15 @@ router.post('/upload',authValidator.storeupload, authController.storeupload); */
 
 
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/login-fail', successRedirect: '/' }));
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login', successRedirect: '/' }));
+
 router.get('/protected', (req, res) => {
   res.send('Usuario logueado con éxito');
 });
-router.get('/login-fail', (req, res) => {
-  res.send('El usuario no tiene una sesión válida');
-});
+
+
+
+
 
 router.get('/', (req, res, next) => {
   if(req.isAuthenticated()) return next();
@@ -40,11 +42,31 @@ router.get('/homepageunlogged', PagesController.homepageunlogged);
 
 router.get('/Register', authController.register);
 
-router.get('/MyGallery', PagesController.gallery);
+router.get('/MyGallery', (req, res, next) => {
+  if(req.isAuthenticated()) return next();
+  
+  res.redirect('/homepageunlogged');
+  
 
-router.get('/MyTimeline', PagesController.timeline);
+}, PagesController.gallery);
 
-router.get('/Image', PagesController.image);
+
+router.get('/MyTimeline', (req, res, next) => {
+  if(req.isAuthenticated()) return next();
+  
+  res.redirect('/homepageunlogged');
+  
+
+},PagesController.timeline);
+
+
+router.get('/Image', (req, res, next) => {
+  if(req.isAuthenticated()) return next();
+  
+  res.redirect('/homepageunlogged');
+  
+
+},PagesController.image);
 
 router.get('/Logout', function(req, res){
   req.logout();
