@@ -1,5 +1,6 @@
 let UploadModel = require('../models/Upload');
 const { validationResult } = require('express-validator');
+let router = require('express').Router();
 
 
 
@@ -27,7 +28,7 @@ exports.store = (req, res) => {
   UploadModel.create(req.body, req.file, req.user)
     
     .then((data) => {
-      return res.send('Image created');
+      return res.redirect('/MyGallery')
     })
     .catch((error) => {
       console.log(error);

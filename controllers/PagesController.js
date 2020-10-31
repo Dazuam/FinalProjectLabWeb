@@ -30,7 +30,7 @@ exports.timeline = (req, res) => {
       // Guardamos los productos en una variable
       let images = data;
       // Enviamos los datos a la vista
-      res.render('pages/timeline', { layout: 'style', images: images });
+      res.render('pages/timeline', { layout: 'style', images: images, username:req.user.name, user:req.user.email });
     });
 
     
@@ -43,7 +43,7 @@ exports.gallery = (req, res) => {
       let images = data;
        console.log(images)
       // Enviamos los datos a la vista
-      res.render('pages/gallery', { layout: 'style', username:req.user.name, images: images });
+      res.render('pages/gallery', { layout: 'style', username:req.user.name, user:req.user.email, images: images });
     });
 }
 
