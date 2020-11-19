@@ -25,6 +25,18 @@ exports.findByUser = (user)=>{
     
 }
 
+exports.findMostPopular = () =>{
+  var date = new Date();
+  var yesterday = new Date(date.getTime());
+  yesterday.setDate(date.getDate() - 1);
+  return knex
+  .select('*')
+  .from('uploads')
+  .where('created_at','>',yesterday)
+  .orderBy('likes','desc')
+  .limit(10)
+}
+
 
 exports.create = (upload, image, user) => {
 

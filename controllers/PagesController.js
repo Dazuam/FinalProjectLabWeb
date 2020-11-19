@@ -3,7 +3,7 @@ let ProductModel = require('../models/Upload');
 
 exports.homepagelogged = (req, res) => {
    
-    ProductModel.all()
+    ProductModel.findMostPopular()
     .then((data) => {
       // Guardamos los productos en una variable
       let images = data;
@@ -14,7 +14,7 @@ exports.homepagelogged = (req, res) => {
 }
 
 exports.homepageunlogged = (req, res) => {
-    ProductModel.all()
+    ProductModel.findMostPopular()
     .then((data) => {
       // Guardamos los productos en una variable
       let images = data;
