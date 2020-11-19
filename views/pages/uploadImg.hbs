@@ -1,4 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<style>
+  form{
+    width:50%;
+    margin-top:12%;
+    margin-left:15%;
+    text-align:center;
+    box-shadow: 15px -12px #dc3545;
+    
+  }
+  form label{
+    color:black;
+    font-weight: bold;
+    display: block;
+  }
+  form input{
+    margin-bottom: 10px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Artist Social Media</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,62 +26,39 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="./">Popular</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Register">Register</a>
+            <a class="nav-link" href="./">Popular
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./MyTimeline">My Timeline</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./MyGallery">My Gallery
-              <span class="sr-only">(current)</span>
-            </a>
+            <a class="nav-link" href="./MyGallery">My Gallery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./Login">Login</a>
+            <a class="nav-link" href="./">{{user}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Logout">Logout</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-<form class="form-signin" method="POST" action="/images" enctype="multipart/form-data">
+<form class="form-signin border border-dark rounded p-4" method="POST" action="/images" enctype="multipart/form-data">
   <div class="text-center mb-4">
-    <h1 class="h3 mb-5 font-weight-normal">HHH</h1>
-        
-        <label>Title: </label>
-        <input type="text" name="title" >
-        
-        <label>Description: </label>
-        <input type="text" name="desciption" >
-
-        <label>Image: </label>
-        <input type="file" name="theImage">
-        <input type="submit" value="Upload">
-</form>
-
-
-
-
-
-
-
-
-
-
-
-<!--div class="container">
-  <div class="starter-template">
-    
-  <div class="row">
-    <div class="col">
-      <form method="POST" action="/images" enctype="multipart/form-data">
-        <label>Imagen: </label>
-        <input type="file" name="theImage">
-        <input type="submit" value="Upload">
-      </form>
-    </div>
+    <h1 class="h3 mb-3 font-weight-normal">Upload Image</h1>
   </div>
-</div-->
+   
+  <label>Title: </label>
+  <input type="text" name="title">
+  
+  <label>Description: </label>
+  <input type="text" name="desciption">
+
+  <label>Image: </label>
+  <input type="file" name="theImage">
+  <input type="submit" value="Upload" class="btn btn-danger btn-block">
+</form>
