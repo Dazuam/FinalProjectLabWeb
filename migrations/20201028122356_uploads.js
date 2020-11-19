@@ -6,6 +6,7 @@ exports.up = function(knex) {
         table.string('title', 255).notNullable();
         table.string('description', 255).notNullable();
         table.string('imgUrl', 1024).notNullable();
+        table.integer('likes').defaultTo(0);
         table.string('user', 255).notNullable();
         table.timestamps(true, true);
       });
