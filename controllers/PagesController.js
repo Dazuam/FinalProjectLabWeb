@@ -35,14 +35,30 @@ exports.timeline = (req, res) => {
     //gets art from your followers
     //gets your own art
     //orders them by date
+    var users = []
 
-    ProductModel.all()
+    UserModel.findByEmail(req.user.email)
     .then((data) => {
+      users.push(data.name)
       // Guardamos los productos en una variable
-      let images = data;
-      // Enviamos los datos a la vista
-      res.render('pages/timeline', { layout: 'style', images: images, username:req.user.name, user:req.user.email });
+      
+      UserModel.findFollowing(data.id)
+      .then((resdata) =>{
+        console.log("resdata follows")
+        console.log(resdata)
+        resdata.forEach(element => users.push(element.name));
+        console.log("users id")
+        console.log(users)
+
+        ProductModel.findForTimeline(users)
+        .then((dataimages) => {
+          let images = dataimages
+          res.render('pages/timeline', { layout: 'style', images: images, username:req.user.name, user:req.user.email });
+        })
+
+      })
     });
+
 
     
 }

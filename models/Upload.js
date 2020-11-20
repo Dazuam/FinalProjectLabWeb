@@ -37,6 +37,14 @@ exports.findMostPopular = () =>{
   .limit(10)
 }
 
+exports.findForTimeline = (users) => {
+  return knex
+    .select('*')
+    .from('uploads')
+    .whereIn('user', users)
+    .orderBy('created_at','desc')
+}
+
 
 exports.create = (upload, image, user) => {
 
