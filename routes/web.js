@@ -29,32 +29,26 @@ router.get('/protected', (req, res) => {
 
 
 
-router.get('/', (req, res, next) => {
-  if(req.isAuthenticated()) return next();
-  
-  res.redirect('/homepageunlogged');
-  
 
-}, PagesController.homepagelogged);
 
-router.get('/homepageunlogged', PagesController.homepageunlogged);
-
+router.get('/', PagesController.homepage);
 
 router.get('/Register', authController.register);
 
 router.get('/MyGallery', (req, res, next) => {
   if(req.isAuthenticated()) return next();
   
-  res.redirect('/homepageunlogged');
+  res.redirect('/');
   
 
 }, PagesController.gallery);
 
 
+
 router.get('/MyTimeline', (req, res, next) => {
   if(req.isAuthenticated()) return next();
   
-  res.redirect('/homepageunlogged');
+  res.redirect('/');
   
 
 },PagesController.timeline);
@@ -63,7 +57,7 @@ router.get('/MyTimeline', (req, res, next) => {
 router.get('/Image', (req, res, next) => {
   if(req.isAuthenticated()) return next();
   
-  res.redirect('/homepageunlogged');
+  res.redirect('/Login');
   
 
 },PagesController.image);
@@ -74,6 +68,13 @@ router.get('/Logout', function(req, res){
 });
 
 router.post('/images',upload.single("theImage"),imagesController.store);
+
+router.get('/Profile/:profileId', function (req, res,next) {
+  var profile_id = req.params.profileId;
+  console.log("profile_id")
+  console.log(profile_id)
+  return next();
+},PagesController.profile);
 
 router.get('/myfollows', PagesController.follows);
 router.get('/myfollowers', PagesController.followers);

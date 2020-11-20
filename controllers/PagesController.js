@@ -1,29 +1,39 @@
 
 let ProductModel = require('../models/Upload');
 
-exports.homepagelogged = (req, res) => {
+exports.homepage = (req, res) => {
    
-    ProductModel.all()
+    ProductModel.findMostPopular()
     .then((data) => {
       // Guardamos los productos en una variable
       let images = data;
       // Enviamos los datos a la vista
-      res.render('pages/homepage', { layout: 'style', user:req.user.email, images: images });
+      if(req.isAuthenticated()){
+        res.render('pages/homepage', { layout: 'style', username:req.user.name, images: images, logged:true });
+      }
+      else{
+        res.render('pages/homepage', { layout: 'style', images: images, logged:false });
+      }
+      
     });
     
 }
 
 exports.homepageunlogged = (req, res) => {
-    ProductModel.all()
+    ProductModel.findMostPopular()
     .then((data) => {
       // Guardamos los productos en una variable
       let images = data;
       // Enviamos los datos a la vista
-      res.render('pages/homepageunlogged', { layout: 'style', images: images });
+      res.render('pages/homepage', { layout: 'style', images: images, logged:false });
     });
 }
 
 exports.timeline = (req, res) => {
+    //gets your followers
+    //gets art from your followers
+    //gets your own art
+    //orders them by date
 
     ProductModel.all()
     .then((data) => {
@@ -37,13 +47,13 @@ exports.timeline = (req, res) => {
 }
 
 exports.gallery = (req, res) => {
-    ProductModel.findByUser(req.user)
+    ProductModel.findByUser(req.user.name)
     .then((data) => {
       // Guardamos los productos en una variable
       let images = data;
        console.log(images)
       // Enviamos los datos a la vista
-      res.render('pages/gallery', { layout: 'style', username:req.user.name, user:req.user.email, images: images });
+      res.render('pages/mygallery', { layout: 'style', username:req.user.name, images: images });
     });
 }
 
@@ -51,6 +61,24 @@ exports.image = (req, res) => {
     res.render('pages/uploadImg', { layout: 'style', user:req.user.email});
 }
 
+exports.profile = (req,res) => {
+  console.log(req)
+  var profile_id = req.params.profileId
+  ProductModel.findByUser(profile_id)
+  .then((data) => {
+    // Guardamos los productos en una variable
+    let images = data;
+     console.log(images)
+    // Enviamos los datos a la vista
+
+    if(req.isAuthenticated()){
+      res.render('pages/profile', { layout: 'style', profilename: profile_id, username:req.user.name, images: images, logged:true });
+    }
+    else{
+      res.render('pages/profile', { layout: 'style', profilename: profile_id, images: images, logged:false });
+    }
+  });
+}
 exports.follows= (req, res) => {
   ProductModel.findByUser(req.user)
     .then((data) => {
