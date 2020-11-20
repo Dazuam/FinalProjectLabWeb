@@ -105,6 +105,3 @@ dist
 
 # ignore files in folder images
 images/*
-
-# but keep the folder
-!images/.keep
