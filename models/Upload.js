@@ -42,7 +42,7 @@ exports.create = (upload, image, user) => {
 
   let url = 'http://localhost:3000/images/' + image.filename;
   return knex('uploads')
-    .insert({ title: upload.title, description: upload.desciption, imgUrl: url, user: user.name })
+    .insert({ title: upload.title, description: upload.description, imgUrl: url, user: user.name })
 }
 
 

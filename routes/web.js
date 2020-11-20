@@ -76,4 +76,7 @@ router.get('/Profile/:profileId', function (req, res,next) {
   return next();
 },PagesController.profile);
 
+router.get('/myfollows', PagesController.follows);
+router.get('/myfollowers', PagesController.followers);
+
 module.exports = router;
