@@ -44,5 +44,3 @@ exports.create = (upload, image, user) => {
   return knex('uploads')
     .insert({ title: upload.title, description: upload.desciption, imgUrl: url, user: user.name })
 }
-
-

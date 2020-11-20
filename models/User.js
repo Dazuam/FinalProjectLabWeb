@@ -35,3 +35,18 @@ exports.create = (user) => {
   return knex('users')
     .insert({ name: user.name, email: user.email, password: pass, role: 'user' })
 }
+
+exports.findFollowers = (followed) => {
+  //find user and get id
+  
+  return knex
+  .select('*')
+  .from('users')
+  .join('followers','users.id','=','followers.follower')
+  .where('followers.follower','=',knex.select('id').from('users').where('name','=',followed))
+
+}
+
+exports.findFollowing = () => {
+
+}
