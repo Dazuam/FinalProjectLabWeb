@@ -61,7 +61,6 @@ exports.image = (req, res) => {
     res.render('pages/uploadImg', { layout: 'style', user:req.user.email});
 }
 
-<<<<<<< HEAD
 exports.profile = (req,res) => {
   console.log(req)
   var profile_id = req.params.profileId
@@ -80,7 +79,6 @@ exports.profile = (req,res) => {
     }
   });
 }
-=======
 exports.follows= (req, res) => {
   ProductModel.findByUser(req.user)
     .then((data) => {
@@ -97,4 +95,3 @@ exports.followers = (req, res) => {
     });
   
 }
->>>>>>> master
