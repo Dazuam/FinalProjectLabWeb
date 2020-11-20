@@ -16,6 +16,16 @@
   <!-- Custom styles for this template -->
   <link href="../css/heroic-features.css" rel="stylesheet">
 
+<style>
+    #prof{
+        width: 80%;
+        font-size: 20px;
+        color: black;
+    }
+   
+</style>
+
+
 </head>
 
 <body>
@@ -56,39 +66,31 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-      <h1 class="display-3">{{username}}'s Profile</h1>
+      <h1 class="display-3">{{username}}'s Followers</h1>
       <p class="lead"></p>
-      <a href="./myfollows" class="btn btn-danger">My Follows</a>
-      <a href="./myfollowers" class="btn btn-danger">My Followers</a>
-      <a href="./Image" class="btn btn-danger">Upload Images</a>
+      
     </header>
 
-    <!-- Page Features -->
-    <div class="row text-center">
-      
+        <table>
+            <tr>
+                <th id="prof">User</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td id="prof">Profile Dummy</td>
+                <td><a href="#" class="btn btn-danger">Got to profile</a></td>
+                <td><a href="#" class="btn btn-danger">Follow</a></td>
+            </tr>
+            <tr>
+                <td id="prof">Profile Dummy2</td>
+                <td><a href="#" class="btn btn-danger">Got to profile</a></td>
+                <td><a href="#" class="btn btn-danger">Follow</a></td>
+            </tr>
+        </table>
+
+    </div>
 
 
-      {{#each images}}
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="{{this.imgUrl}}" alt="">
-            <div class="card-body">
-              <h4 class="card-title">{{this.title}}</h4>
-              <p class="card-text">{{this.description}}</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-danger">{{this.user}}</a>
-            </div>
-          </div>
-        </div>
-      {{/each}}
-
-      
-
-    
-  <!-- /.container -->
-
-    <!-- /.container -->
     
 
   <!-- Bootstrap core JavaScript -->

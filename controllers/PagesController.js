@@ -50,3 +50,20 @@ exports.gallery = (req, res) => {
 exports.image = (req, res) => {
     res.render('pages/uploadImg', { layout: 'style', user:req.user.email});
 }
+
+exports.follows= (req, res) => {
+  ProductModel.findByUser(req.user)
+    .then((data) => {
+      
+      res.render('pages/myfollows', { layout: 'style', username:req.user.name, user:req.user.email});
+    });
+}
+
+exports.followers = (req, res) => {
+  ProductModel.findByUser(req.user)
+    .then((data) => {
+      
+      res.render('pages/myfollowers', { layout: 'style', username:req.user.name, user:req.user.email});
+    });
+  
+}

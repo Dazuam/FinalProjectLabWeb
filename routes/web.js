@@ -75,5 +75,7 @@ router.get('/Logout', function(req, res){
 
 router.post('/images',upload.single("theImage"),imagesController.store);
 
+router.get('/myfollows', PagesController.follows);
+router.get('/myfollowers', PagesController.followers);
 
 module.exports = router;
