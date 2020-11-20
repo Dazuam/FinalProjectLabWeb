@@ -33,7 +33,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Artist Social Media</a>
+      <a class="navbar-brand" href="./">Artist Social Media</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -76,17 +76,14 @@
                 <th id="prof">User</th>
                 <th></th>
             </tr>
+            {{#each followers}}
             <tr>
-                <td id="prof">Profile Dummy</td>
-                <td><a href="#" class="btn btn-danger">Got to profile</a></td>
-                <td><a href="#" class="btn btn-danger">Follow</a></td>
+              <td id = "prof">{{this.name}}</td>
+              <td><a href="./Profile/{{this.name}}" class="btn btn-danger">Go to profile</a></td>
             </tr>
-            <tr>
-                <td id="prof">Profile Dummy2</td>
-                <td><a href="#" class="btn btn-danger">Got to profile</a></td>
-                <td><a href="#" class="btn btn-danger">Follow</a></td>
-            </tr>
+            {{/each}}
         </table>
+
 
     </div>
 

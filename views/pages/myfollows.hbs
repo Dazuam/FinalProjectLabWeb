@@ -72,16 +72,12 @@
                 <th id="prof">User</th>
                 <th></th>
             </tr>
+            {{#each follows}}
             <tr>
-                <td id="prof">Profile Dummy</td>
-                <td><a href="#" class="btn btn-danger">Got to profile</a></td>
-                <td><a href="#" class="btn btn-danger">Unfollow</a></td>
+              <td id = "prof">{{this.name}}</td>
+              <td><a href="./Profile/{{this.name}}" class="btn btn-danger">Go to profile</a></td>
             </tr>
-            <tr>
-                <td id="prof">Profile Dummy2</td>
-                <td><a href="#" class="btn btn-danger">Got to profile</a></td>
-                <td><a href="#" class="btn btn-danger">Unfollow</a></td>
-            </tr>
+            {{/each}}
         </table>
 
     </div>

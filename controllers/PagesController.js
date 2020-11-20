@@ -1,5 +1,6 @@
 
 let ProductModel = require('../models/Upload');
+let UserModel = require('../models/User');
 
 exports.homepage = (req, res) => {
    
@@ -80,18 +81,38 @@ exports.profile = (req,res) => {
   });
 }
 exports.follows= (req, res) => {
-  ProductModel.findByUser(req.user)
+  UserModel.findByEmail(req.user.email)
     .then((data) => {
+      console.log("data of user")
+      console.log(data.id)
+      console.log(data)
+      UserModel.findFollowing(data.id)
+      .then((resdata) =>{
+        console.log("resdata follows")
+        console.log(resdata)
+        let follows = resdata
+        res.render('pages/myfollows', { layout: 'style', username:req.user.name, user:req.user.email, follows:follows});
+      })
       
-      res.render('pages/myfollows', { layout: 'style', username:req.user.name, user:req.user.email});
+      
     });
 }
 
 exports.followers = (req, res) => {
-  ProductModel.findByUser(req.user)
+  UserModel.findByEmail(req.user.email)
     .then((data) => {
+      console.log("data of user")
+      console.log(data.id)
+      console.log(data)
+      UserModel.findFollowers(data.id)
+      .then((resdata) =>{
+        console.log("resdata followers")
+        console.log(resdata)
+        let followers = resdata
+        res.render('pages/myfollowers', { layout: 'style', username:req.user.name, user:req.user.email, followers:followers});
+      })
       
-      res.render('pages/myfollowers', { layout: 'style', username:req.user.name, user:req.user.email});
+      
     });
   
 }

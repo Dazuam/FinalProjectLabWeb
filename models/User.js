@@ -43,10 +43,16 @@ exports.findFollowers = (followed) => {
   .select('*')
   .from('users')
   .join('followers','users.id','=','followers.follower')
-  .where('followers.follower','=',knex.select('id').from('users').where('name','=',followed))
+  .where('followers.followed',followed);
 
 }
 
-exports.findFollowing = () => {
+exports.findFollowing = (following) => {
+
+  return knex
+  .select('*')
+  .from('users')
+  .join('followers','users.id','=','followers.followed')
+  .where('followers.follower',following);
 
 }
