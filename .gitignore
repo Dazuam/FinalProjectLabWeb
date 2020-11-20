@@ -103,5 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
-# Storage
-storage
+# ignore files in folder images
+images/*
+
+# but keep the folder
+!images/.keep
