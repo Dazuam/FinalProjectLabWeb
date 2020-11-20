@@ -105,3 +105,6 @@ dist
 
 # ignore files in folder images
 images/*
+
+#storage
+storage
