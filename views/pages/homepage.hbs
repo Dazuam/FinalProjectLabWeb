@@ -54,7 +54,7 @@
       {{#each images}}
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card h-100">
-            <img class="card-img-top" src="{{this.imgUrl}}" alt="">
+            <a href="./Uploads/{{this.id}}"><img class="card-img-top" src="{{this.imgUrl}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">{{this.title}}</h4>
               <p class="card-text">{{this.description}}</p>
@@ -65,8 +65,6 @@
           </div>
         </div>
       {{/each}}
-
-      
 
     </div>
     <!-- /.row -->
@@ -92,6 +90,16 @@
       timelinea.innerHTML = "My Timeline"
       timelineli.appendChild(timelinea);
       navigation_bar.appendChild(timelineli);
+
+      //timeline
+      var likesli = document.createElement("li");
+      likes.className = "nav-item";
+      var likesa = document.createElement("a");
+      likesa.className = "nav-link";
+      likesa.href = "./MyLikes";
+      likesa.innerHTML = "My Likes"
+      likesli.appendChild(likesa);
+      navigation_bar.appendChild(likesli);
 
       //profile
       var profileli = document.createElement("li");

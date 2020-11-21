@@ -20,7 +20,7 @@
 
 <body>
 
-  <!-- Navigation -->
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
     <div class="container">
       <a class="navbar-brand" href="./">CapArt</a>
@@ -39,33 +39,32 @@
     </div>
   </nav>
 
-  <!-- {{#each images}} -->
   <div class="details">
     <div class="row Image">
         <div class="col-xs-12">
-          <img class="card-img-top" src="{{this.imgUrl}}" alt="">
+          <img class="card-img-top" src="{{images.imgUrl}}" alt="">
         </div>
     </div>
     <div class="row Artist Info">
         <div class="col-md-offset-1 col-md-10">
-          <h4 class="card-title">{{this.title}}</h4>
+          <h4 class="card-title">{{images.title}}</h4>
         </div>
     </div>
     <div class="row Description">
         <div class="col-xs-12">
-          <p class="card-text">{{this.description}}</p>
+          <h3 class="card-title">{{images.user}}</h3>
+          <p class="card-text">{{images.description}}</p>
         </div>
     </div>
     <div class="row Comments">
         <div class="col-xs-12">
           <div class="form-label-group">
-            <input name="comment" type="comment" id="inputComment" class="form-control col-6" placeholder="Comment" required="" autofocus="" autocomplete="off">
+            <input name="comment" type="input" id="inputComment" class="form-control col-6" placeholder="text" required="" autofocus="" autocomplete="off">
             <button class="btn btn-primary col-6" type="submit">Comment</button>
           </div>
 
         </div>
         <div class="col-md-9">
-         <!--{{#each comments}}--> 
         </div>
     </div>
   </div>
