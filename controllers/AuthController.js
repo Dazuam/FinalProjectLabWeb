@@ -34,7 +34,7 @@ exports.store = (req, res) => {
   }
   UserModel.create(req.body)
     .then((data) => {
-      return res.send('Usuario creado');
+      res.render('auth/created',{ layout: 'auth' });
     })
     .catch((error) => {
       console.log(error);
