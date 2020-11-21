@@ -54,10 +54,16 @@
         <div class="col-xs-12">
           <h3 class="card-title">{{images.user}}</h3>
           <p class="card-text">{{images.description}}</p>
+          <div class="col">
+            <a href="" class="btn btn-danger">Like</a>
+          </div>
+          <div class="col">
+            <p class="card-text">{{images.likes}}</p>
+          </div>
         </div>
     </div>
     <div class="row Comments">
-        <div class="col-xs-12">
+        <div class="col-xs-12 row-md-offset-2">
           <div class="form-label-group">
             <input name="comment" type="input" id="inputComment" class="form-control col-6" placeholder="text" required="" autofocus="" autocomplete="off">
             <button class="btn btn-primary col-6" type="submit">Comment</button>
